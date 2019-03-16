@@ -6,7 +6,8 @@ use App\Models\Traits\Sluggable;
 
 class Event extends Model
 {
-    use SlugRoutable,Sluggable;
+    use SlugRoutable ,Sluggable;
+
     protected $fillable=['title','description'];
 
     protected static function boot(){
@@ -15,7 +16,7 @@ class Event extends Model
             $event->slug =str_slug($event->title);
         });
         static::deleting(function($event){
-            dd("pendant la suppression d'un evenement");
+            dd("pendant la suppression d'un événement");
         });
     }
 
